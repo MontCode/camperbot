@@ -13,7 +13,7 @@ const AppConfig = {
   org: 'bothelp',
   testUser: 'bothelp',
   // so bot doesnt get in a loop replying itself
-  botlist: ['bothelp', 'camperbot', 'demobot', config.githubId],
+  botlist: ['bothelp', 'camperbot', 'MontBot', 'demobot', config.githubId],
   webuser: 'webuser',
   wikiHost: 'https://github.com/freecodecamp/freecodecamp/wiki/',
   gitterHost: 'https://gitter.im/',
@@ -38,12 +38,12 @@ const AppConfig = {
   showConfig: function() {
     console.log('AppConfig');
     Object.keys(AppConfig)
-    .sort()
-    .forEach(v => {
-      if (typeof AppConfig[v] !== 'function') {
-        console.log('\t', v, ':\t\t', AppConfig[v]);
-      }
-    });
+      .sort()
+      .forEach(v => {
+        if (typeof AppConfig[v] !== 'function') {
+          console.log('\t', v, ':\t\t', AppConfig[v]);
+        }
+      });
   },
 
   warn: function(msg, obj) {
@@ -56,7 +56,7 @@ const AppConfig = {
   getBotName: function() {
     if (!AppConfig.botname) {
       AppConfig.init();
-      this.warn('getBotName()', AppConfig.botname );
+      this.warn('getBotName()', AppConfig.botname);
       console.log('tried to call botname before it was set');
     }
     return AppConfig.botname;
@@ -83,7 +83,7 @@ const AppConfig = {
   topicDmUri: function(topic) {
     let uri = AppConfig.appHost + '/go?dm=y&room=' + AppConfig.getBotName();
     if (topic) {
-        uri += '&topic=' + topic;
+      uri += '&topic=' + topic;
     }
     return uri;
   },
@@ -122,8 +122,8 @@ const envConfigs = {
     appRedirectUrl: 'http://localhost:7891/login/callback'
   },
   prod: {
-    botname: 'camperbot',
-    appHost: 'http://bot.freecodecamp.com',
+    botname: 'MontBot',
+    appHost: 'http://montbot.heroku.com',
     apiServer: 'www.freecodecamp.com',
     appRedirectUrl: 'http://bot.freecodecamp.com/login/callback'
   }
