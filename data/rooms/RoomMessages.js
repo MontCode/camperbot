@@ -6,9 +6,9 @@
 
 // using js rather than json so we can have functions and comments
 
-const BotCommands = require('../../lib/bot/BotCommands'),
-      _ = require('lodash'),
-      Utils = require('../../lib/utils/Utils');
+const BotCommands = require('../../lib/bot/BotCommands');
+const _ = require('lodash');
+const Utils = require('../../lib/utils/Utils');
 
 
 // TODO - add these to all of the rooms
@@ -35,7 +35,7 @@ const AllRoomMessages = [
   {
     regex: /'''/,
     text: '> :bulb: to format code use backticks! ``` [more info]' +
-          '(https://github.com/freecodecamp/freecodecamp/wiki/code-formatting)'
+          '(http://forum.freecodecamp.com/t/markdown-code-formatting/18391)'
   },
   {
     regex: /holler/i,
@@ -45,7 +45,8 @@ const AllRoomMessages = [
   },
   {
     // tests: https://regex101.com/r/hH5cN7/42
-    regex: /(?:^|\s)(?:(?:th(?:n[qx]|x)|t[xyq])|than[kx](?:[sxz]){0,2}(?:[uq]|y(?:ou)?)?)\b/i,
+    // eslint-disable-next-line max-len
+    regex: /((?:^|\s)(?:(?:th(?:n[qx]|x)|t[xyq])|than[kx](?:[sxz]){0,2}(?:[uq]|y(?:ou)?)?)|gracias?|spasibo|dhanyavaad(?:hamulu)?|o?brigad(?:o|a)|dziekuje|(?:re)?merci|multumesc|shukra?an|danke)\b/gi,
     func: BotCommands.thanks
   },
   {
